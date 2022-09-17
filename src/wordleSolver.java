@@ -45,7 +45,7 @@ public class wordleSolver {
     }
   }
 
-  static String avoidRepeats(ArrayList<String> words) {
+  public static String avoidRepeats(ArrayList<String> words) {
     boolean repeat = true;
     int index = 0;
     while (repeat){
@@ -95,6 +95,51 @@ public class wordleSolver {
       words.set(i, words.get(max));
       words.set(max, swap);
     }
+  }
+  
+   public static ArrayList<String> removeWords(ArrayList<String> words, String color, char letter, int pos) {
+    if (color.equalsIgnoreCase("green")) {
+      ANSWER[pos] = letter;
+      for (int i = words.size() - 1; i >= 0; i--) {
+        if (words.get(i).charAt(pos) != letter) {
+          words.remove(i);
+        }
+      }
+    } else if (color.equalsIgnoreCase("yellow")) {
+      for (int i = words.size() - 1; i >= 0; i--) {
+        char[] word = words.get(i).toLowerCase().toCharArray();
+        int counter = 0;
+        for (int j = 0; j < 5; j++) {
+          if (j == pos) {
+            if (word[j] == letter) {
+              words.remove(i);
+            }
+          } else if (word[j] != letter) {
+              counter++;
+          }
+        }
+        if (counter == 0) {
+         words.remove(i);
+        }
+        int let = word[i] - 'a';
+        isYellow[let] = true;
+      }
+
+    } else {
+      if(!isYellow[letter-'a']) {
+        for (int i = words.size() - 1; i >= 0; i--) {
+          char[] word = words.get(i).toCharArray();
+          int index = 0;
+          while (true) {
+            if (word[index] == letter) {
+              words.remove(i);
+              break;
+            }
+          }
+        }
+      }
+    }
+    return words;
   }
 }
 
