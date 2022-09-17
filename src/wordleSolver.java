@@ -4,14 +4,13 @@ import java.util.Scanner;
 import java.io.FileNotFoundException;
 
 public class wordleSolver {
+  //declare array for frequency
   static double[] freqArr = new double[26];
 
+  //declare ArrayList for words
+  static ArrayList<String> words = new ArrayList<>();
   public static void main(String[] args) throws FileNotFoundException {
-    
-    //declare array for frequency
 
-    //declare ArrayList for words
-    ArrayList<String> words = new ArrayList<>();
     
     //read in WordleList text file
 
@@ -31,8 +30,12 @@ public class wordleSolver {
       freqArr[i] = Double.parseDouble(readFreq.nextLine());
       i++;
     }
-
+ doSelectionSort();
     //System.out.println(probability(words.get(0)));
+    //for (int h=0; h<5; h++)
+    //{
+     // System.out.println(words.get(h));
+    //}
   }
 
   static String avoidRepeats(ArrayList<String> words) {
@@ -68,6 +71,22 @@ public class wordleSolver {
     }
 
     return sum;
+  }
+
+  // Create doSelectionSort method
+  public static void doSelectionSort() {
+    for (int i = 0; i < words.size(); i++) {
+      int max = i;
+      // find position of greatest probability between (i + 1)th element and last element
+      for (int j = i + 1; j < words.size(); j++) {
+        if (probability(words.get(j)) > probability(words.get(max)))
+          max = j;}
+
+      // Swap min (smallest num) to current position on array
+      String swap = words.get(i);
+      words.set(i, words.get(max));
+      words.set(max, swap);
+    }
   }
 
 }
