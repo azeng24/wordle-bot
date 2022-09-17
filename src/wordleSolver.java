@@ -7,7 +7,7 @@ public class wordleSolver {
     double[] freqArr = new double[26];
     
     //declare ArrayList for words
-    ArrayList words = new ArrayList();
+    ArrayList<String> words = new ArrayList<>();
     
     //read in WordleList text file
     File myObj = new File("WordList.txt");
