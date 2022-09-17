@@ -45,16 +45,6 @@ public class wordleSolver {
     while (!(gotIt.equalsIgnoreCase("yes")) && counter < 6) {
       counter++;
       // the rest of the code ..
-      System.out.println("Enter the color shown for the first letter (" + a.charAt(0) + ")");
-      first = scan.nextLine();
-      System.out.println("Enter the color shown for the second letter (" + a.charAt(1) + ")");
-      second = scan.nextLine();
-      System.out.println("Enter the color shown for the first letter (" + a.charAt(2) + ")");
-      third = scan.nextLine();
-      System.out.println("Enter the color shown for the first letter (" + a.charAt(3) + ")");
-      fourth = scan.nextLine();
-      System.out.println("Enter the color shown for the first letter (" + a.charAt(4) + ")");
-      fifth = scan.nextLine();
     }
   }
 
