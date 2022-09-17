@@ -30,7 +30,19 @@ public class wordleSolver {
       freqArr[i] = Double.parseDouble(readFreq.nextLine());
       i++;
     }
- doSelectionSort();
+
+    Scanner scan = new Scanner(System.in);
+    int counter = 0;
+    String gotIt;
+    doSelectionSort();
+    String a = avoidRepeats(words);
+    System.out.printf("Your recommended first word is %s \n", a);
+    System.out.println("Did you get the wordle? (Enter yes for yes, anything else for no)");
+    gotIt = scan.next();
+    while (!(gotIt.equalsIgnoreCase("yes")) && counter < 6) {
+      counter++;
+      // the rest of the code ..
+    }
     //System.out.println(probability(words.get(0)));
     //for (int h=0; h<5; h++)
     //{
@@ -58,8 +70,8 @@ public class wordleSolver {
     }
     return words.get(index);
   }
-  static double probability (String word)
-  {
+
+  public static double probability(String word) {
     double sum=0;
     int pos=0;
 
@@ -80,7 +92,8 @@ public class wordleSolver {
       // find position of greatest probability between (i + 1)th element and last element
       for (int j = i + 1; j < words.size(); j++) {
         if (probability(words.get(j)) > probability(words.get(max)))
-          max = j;}
+          max = j;
+      }
 
       // Swap min (smallest num) to current position on array
       String swap = words.get(i);
@@ -88,6 +101,5 @@ public class wordleSolver {
       words.set(max, swap);
     }
   }
-
 }
 
