@@ -55,6 +55,7 @@ public class wordleSolver {
       System.out.printf("Your next recommended word is: %s \n", words.get(0));
       System.out.println("Did you get the wordle? (Enter yes for yes, anything else for no)");
       gotIt = scan.nextLine();
+      a = words.get(0);
     }
   }
 
