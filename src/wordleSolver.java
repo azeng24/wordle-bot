@@ -43,11 +43,6 @@ public class wordleSolver {
       counter++;
       // the rest of the code ..
     }
-    //System.out.println(probability(words.get(0)));
-    //for (int h=0; h<5; h++)
-    //{
-     // System.out.println(words.get(h));
-    //}
   }
 
   static String avoidRepeats(ArrayList<String> words) {
