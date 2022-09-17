@@ -14,7 +14,12 @@ public class wordleSolver {
   //declare ArrayList for words
   static ArrayList<String> words = new ArrayList<>();
   public static void main(String[] args) throws FileNotFoundException {
-
+    // Quick introduction to the program!
+    System.out.println("Hello! Welcome to the Wordle Bot:)");
+    System.out.println("Instructions are pretty simple: Follow along to help get suggestions " +
+            "on different words you can use to try to get the \"Wordle\" word!");
+    System.out.println("DISCLAIMER: this is NOT a \"Wordle\" solver. You are not guaranteed to get " +
+            "the right word suggested in the limited 6 tries! \n");
 
     //read in WordleList text file
 
@@ -41,7 +46,7 @@ public class wordleSolver {
     doSelectionSort();
     String a = avoidRepeats(words);
     System.out.printf("Your recommended first word is: %s \n", a);
-    System.out.println("Did you get the wordle? (Enter yes for yes, anything else for no)");
+    System.out.println("Did you get the wordle? (Enter \"yes\" for yes, enter anything else for no)");
     gotIt = scan.nextLine();
     while (!(gotIt.equalsIgnoreCase("yes")) && counter < 6) {
       counter++;
