@@ -128,7 +128,7 @@ public class wordleSolver {
         isYellow[let] = true;
       }
 
-    } else { //can make a isGreen as well. or can use the ANSWER array
+    } else { //added isGreen -> looks for greens before removing gray
       if(!isYellow[letter-'a']) {
         boolean isGreen=false;
         for(int i=0; i<5; i++)
