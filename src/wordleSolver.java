@@ -45,6 +45,13 @@ public class wordleSolver {
     while (!(gotIt.equalsIgnoreCase("yes")) && counter < 6) {
       counter++;
       // the rest of the code ..
+      for (int n = 0; n < 6; n++) {
+        do {
+          System.out.println("Enter the color shown for the first letter(yellow, gray, green): ");
+          first = scan.next();
+        } while (!(first.equalsIgnoreCase("yellow")) || !(first.equalsIgnoreCase("green"))
+                || !(first.equalsIgnoreCase("gray")) || !(first.equalsIgnoreCase("grey")));
+      }
     }
   }
 
