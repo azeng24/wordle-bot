@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public wordleSolver {
+public class wordleSolver {
   public static void main(String[] args) {
     
     //declare array for frequency
