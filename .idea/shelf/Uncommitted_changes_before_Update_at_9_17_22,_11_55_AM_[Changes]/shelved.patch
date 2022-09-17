@@ -1,0 +1,46 @@
+Index: src/wordleSolver.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/wordleSolver.java b/src/wordleSolver.java
+--- a/src/wordleSolver.java	
++++ b/src/wordleSolver.java	
+@@ -5,23 +5,23 @@
+ 
+ public class wordleSolver {
+   public static void main(String[] args) throws FileNotFoundException {
+-    
++
+     //declare array for frequency
+     double[] freqArr = new double[26];
+-    
++
+     //declare ArrayList for words
+     ArrayList<String> words = new ArrayList<>();
+-    
++
+     //read in WordleList text file
+ 
+     File myObj = new File("WordList.txt");
+     Scanner readerWords = new Scanner(myObj);
+     while(readerWords.hasNextLine()) {
+       String w = readerWords.nextLine();
+-      words.add(w);  
++      words.add(w);
+     }
+     readerWords.close();
+-      
++
+     //read in frequency text file
+     File myObj2 = new File("FreqByLetter.txt");
+     Scanner readFreq = new Scanner(myObj2);
+@@ -30,7 +30,6 @@
+       freqArr[i] = Double.parseDouble(readFreq.nextLine());
+       i++;
+     }
+-    
++
+   }
+ }
+-

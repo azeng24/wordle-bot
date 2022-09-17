@@ -1,0 +1,52 @@
+Index: src/wordleSolver.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.util.Scanner;\n\npublic wordleSolver {\n  public static void main(String[] args) {\n    \n    //declare array for frequency\n    double freqArr = new double[26];\n    \n    //declare ArrayList for words\n    ArrayList words = new ArrayList();\n    \n    //read in WordleList text file\n    File myObj = new File(\"WordList.txt\");\n    Scanner readerWords = new Scanner(myObj);\n    while(readerWords.hasNextLine()) {\n      String w = readerWords.nextLine();\n      words.add(w);  \n    }\n    readerWords.close()\n      \n    //read in frequency text file\n    File myObj2 = new File(\"FreqByLetter.txt\");\n    Scanner readFreq = new Scanner(myObj2);\n    int i = 0;\n    while (readerFreq.hasNextLine()) {\n      freqArr[i] = readerFreq.nextLine();\n      i++;\n    }\n    \n  }\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/wordleSolver.java b/src/wordleSolver.java
+--- a/src/wordleSolver.java	(revision 340a681e8f2d34a2e26bd0c6484203f90fcecb03)
++++ b/src/wordleSolver.java	(date 1663429747620)
+@@ -1,13 +1,16 @@
++import java.io.FileNotFoundException;
+ import java.util.Scanner;
++import java.util.ArrayList;
++import java.io.File;
+ 
+-public wordleSolver {
+-  public static void main(String[] args) {
++public class wordleSolver {
++  public static void main(String[] args) throws FileNotFoundException {
+     
+     //declare array for frequency
+-    double freqArr = new double[26];
++    double[] freqArr = new double[26];
+     
+     //declare ArrayList for words
+-    ArrayList words = new ArrayList();
++    ArrayList<String> words = new ArrayList();
+     
+     //read in WordleList text file
+     File myObj = new File("WordList.txt");
+@@ -16,16 +19,17 @@
+       String w = readerWords.nextLine();
+       words.add(w);  
+     }
+-    readerWords.close()
++    readerWords.close();
+       
+     //read in frequency text file
+     File myObj2 = new File("FreqByLetter.txt");
+     Scanner readFreq = new Scanner(myObj2);
+     int i = 0;
+-    while (readerFreq.hasNextLine()) {
+-      freqArr[i] = readerFreq.nextLine();
++    while (readFreq.hasNextLine()) {
++      freqArr[i] = Double.parseDouble(readFreq.nextLine());
+       i++;
+     }
++
+     
+   }
+ }

@@ -1,0 +1,22 @@
+Index: src/wordleSolver.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.io.File;\nimport java.util.ArrayList;\nimport java.util.Scanner;\nimport java.io.FileNotFoundException;\n\npublic class wordleSolver {\n  static double[] freqArr = new double[26];\n\n  public static void main(String[] args) throws FileNotFoundException {\n    \n    //declare array for frequency\n\n    //declare ArrayList for words\n    ArrayList<String> words = new ArrayList<>();\n    \n    //read in WordleList text file\n\n    File myObj = new File(\"WordList.txt\");\n    Scanner readerWords = new Scanner(myObj);\n    while(readerWords.hasNextLine()) {\n      String w = readerWords.nextLine();\n      words.add(w);  \n    }\n    readerWords.close();\n      \n    //read in frequency text file\n    File myObj2 = new File(\"FreqByLetter.txt\");\n    Scanner readFreq = new Scanner(myObj2);\n    int i = 0;\n    while (readFreq.hasNextLine()) {\n      freqArr[i] = Double.parseDouble(readFreq.nextLine());\n      i++;\n    }\n    \n  }\n  double probability (String word)\n  {\n    double sum=0;\n    int pos=0;\n\n    for (int i=0; i<5 ; i++)\n    {\n      pos=word.toLowerCase().charAt(i) - 'a';\n\n      sum+=freqArr[pos];\n    }\n\n    return sum;\n  }\n\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/wordleSolver.java b/src/wordleSolver.java
+--- a/src/wordleSolver.java	(revision ffb1a8be41e02a0cb97ba670916ffcaa92bc48e8)
++++ b/src/wordleSolver.java	(date 1663430334329)
+@@ -48,5 +48,11 @@
+     return sum;
+   }
+ 
++  public static ArrayList<String> wordSort(ArrayList<String> words) {
++    return words;
++  }
++
++
++
+ }
+ 
