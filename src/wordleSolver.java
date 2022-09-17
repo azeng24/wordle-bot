@@ -57,7 +57,7 @@ public class wordleSolver {
       }
       isYellow = new boolean[26];
       for (int pos = 0; pos < 5; pos++) {
-        System.out.printf("What color was tile #%d? (green, yellow, or grey)", pos+1);
+        System.out.printf("What color was tile #%d? (green, yellow, or grey) \n", pos+1);
         String color = scan.nextLine();
         System.out.println(word[pos]);
         removeWords(words, color, word[pos], pos);
