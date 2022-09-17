@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 public class wordleSolver {
   //declare array for frequency
   static double[] freqArr = new double[26];
+  static final char[] ANSWER = new char[5];
+  static boolean[] isYellow = new boolean[26];
 
   //declare ArrayList for words
   static ArrayList<String> words = new ArrayList<>();
