@@ -4,11 +4,12 @@ import java.util.Scanner;
 import java.io.FileNotFoundException;
 
 public class wordleSolver {
+  static double[] freqArr = new double[26];
+
   public static void main(String[] args) throws FileNotFoundException {
     
     //declare array for frequency
-    double[] freqArr = new double[26];
-    
+
     //declare ArrayList for words
     ArrayList<String> words = new ArrayList<>();
     
@@ -32,5 +33,20 @@ public class wordleSolver {
     }
     
   }
+  double probability (String word)
+  {
+    double sum=0;
+    int pos=0;
+
+    for (int i=0; i<5 ; i++)
+    {
+      pos=word.toLowerCase().charAt(i) - 'a';
+
+      sum+=freqArr[pos];
+    }
+
+    return sum;
+  }
+
 }
 
