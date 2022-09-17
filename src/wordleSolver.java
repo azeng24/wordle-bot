@@ -33,6 +33,27 @@ public class wordleSolver {
     }
     
   }
+
+  static String avoidRepeats(ArrayList<String> words) {
+    boolean repeat = true;
+    int index = 0;
+    while (repeat){
+      char[] word = words.get(index).toCharArray();
+      int counter = 0;
+      for (int i = 0; i < 5; i++) {
+        for (int j = 1+1; j < 5; j++) {
+          if (word[i] == word[j]) {
+            index++;
+            counter++;
+          }
+        }
+      }
+      if (counter == 0) {
+        repeat = false;
+      }
+    }
+    return words.get(index);
+  }
   double probability (String word)
   {
     double sum=0;
