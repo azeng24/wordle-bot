@@ -36,6 +36,7 @@ public class wordleSolver {
     Scanner scan = new Scanner(System.in);
     int counter = 0;
     String gotIt;
+    String first, second, third, fourth, fifth;
     doSelectionSort();
     String a = avoidRepeats(words);
     System.out.printf("Your recommended first word is %s \n", a);
