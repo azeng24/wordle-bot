@@ -9,22 +9,23 @@ public class wordleSolver {
   static final char[] ANSWER = new char[5];
   static boolean[] isYellow = new boolean[26];
   static boolean isStartWord = true;
+  static char[] word;
 
   //declare ArrayList for words
   static ArrayList<String> words = new ArrayList<>();
   public static void main(String[] args) throws FileNotFoundException {
 
-    
+
     //read in WordleList text file
 
     File myObj = new File("WordList.txt");
     Scanner readerWords = new Scanner(myObj);
     while(readerWords.hasNextLine()) {
       String w = readerWords.nextLine();
-      words.add(w);  
+      words.add(w);
     }
     readerWords.close();
-      
+
     //read in frequency text file
     File myObj2 = new File("FreqByLetter.txt");
     Scanner readFreq = new Scanner(myObj2);
@@ -37,7 +38,6 @@ public class wordleSolver {
     Scanner scan = new Scanner(System.in);
     int counter = 0;
     String gotIt;
-    boolean cont = false;
     doSelectionSort();
     String a = avoidRepeats(words);
     System.out.printf("Your recommended first word is %s \n", a);
@@ -45,48 +45,26 @@ public class wordleSolver {
     gotIt = scan.nextLine();
     while (!(gotIt.equalsIgnoreCase("yes")) && counter < 6) {
       counter++;
+      if(isStartWord){
+        word = a.toCharArray();
+      } else {
+        word = words.get(0).toCharArray();
+      }
+      isYellow = new boolean[26];
       for (int pos = 0; pos < 5; pos++) {
         System.out.println("What color was the tile? (green, yellow, grey)");
-        System.out.println("The letter was " + a.charAt(pos));
         String color = scan.nextLine();
-        if (color.equalsIgnoreCase("yellow")) {
-          cont = true;
-        } else if (color.equalsIgnoreCase("green")) {
-          cont = true;
-        } else if (color.equalsIgnoreCase("grey")) {
-          cont = true;
-        } else {
-          cont = false;
-        }
-        while (!cont) {
-          System.out.println("Sorry, that was invalid. Try again.");
-          System.out.println("What color was the tile? (green, yellow, grey)");
-          System.out.println("The letter was " + a.charAt(pos));
-          color = scan.nextLine();
-          if (color.equalsIgnoreCase("yellow") || color.equalsIgnoreCase("green") ||
-                  color.equalsIgnoreCase("grey")) {
-            cont = true;
-          }
-        }
-        char[] word;
-        if(isStartWord){
-          word = a.toCharArray();
-        } else {
-          word = words.get(0).toCharArray();
-        }
+        System.out.println(word[pos]);
         removeWords(words, color, word[pos], pos);
         System.out.println(words);
-        }
+      }
       isStartWord = false;
       System.out.printf("Your next recommended word is: %s \n", words.get(0));
       System.out.println(words);
       System.out.println("Did you get the wordle? (Enter yes for yes, anything else for no)");
       gotIt = scan.nextLine();
-      a = words.get(0);
-      }
-
     }
-
+  }
 
   public static String avoidRepeats(ArrayList<String> words) {
     boolean repeat = true;
@@ -139,7 +117,7 @@ public class wordleSolver {
       words.set(max, swap);
     }
   }
-  
+
   public static ArrayList<String> removeWords(ArrayList<String> words, String color, char letter, int pos) {
     if (color.equalsIgnoreCase("green")) {
       ANSWER[pos] = letter;
@@ -172,7 +150,7 @@ public class wordleSolver {
     } else if(!isYellow[letter-'a'] && color.equalsIgnoreCase("grey")){ //added isGreen -> looks for greens before removing gray
         boolean isGreen=false;
         for (int i = 0; i < 5; i++) {
-            if (words.get(0).charAt(i) == words.get(0).charAt(pos) && i != pos && !isStartWord) {
+            if (word[i] == word[pos] && i != pos && !isStartWord) {
               isGreen = true;
               for (int j = words.size() - 1; j >= 0; j--) {
                 if (words.get(j).charAt(pos) == letter) {
@@ -194,8 +172,10 @@ public class wordleSolver {
             }
           }
         }
+        if (words.get(0).equals("FALSE")) {
+          words.remove(0);
+        }
       }
     return words;
   }
 }
-
