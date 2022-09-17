@@ -127,15 +127,26 @@ public class wordleSolver {
         isYellow[let] = true;
       }
 
-    } else {
+    } else { //can make a isGreen as well. or can use the ANSWER array
       if(!isYellow[letter-'a']) {
-        for (int i = words.size() - 1; i >= 0; i--) {
-          char[] word = words.get(i).toCharArray();
-          int index = 0;
-          while (true) {
-            if (word[index] == letter) {
-              words.remove(i);
-              break;
+        boolean isGreen=false;
+        for(int i=0; i<5; i++)
+        {
+          if(ANSWER[i]==letter)
+          {
+            isGreen=true;
+            break;
+          }
+        }
+        if(!isGreen) {
+          for (int i = words.size() - 1; i >= 0; i--) {
+            char[] word = words.get(i).toCharArray();
+            int index = 0;
+            while (true) {
+              if (word[index] == letter) {
+                words.remove(i);
+                break;
+              }
             }
           }
         }
