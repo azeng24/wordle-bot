@@ -37,6 +37,7 @@ public class wordleSolver {
     Scanner scan = new Scanner(System.in);
     int counter = 0;
     String gotIt;
+    boolean cont = false;
     String first, second, third, fourth, fifth;
     doSelectionSort();
     String a = avoidRepeats(words);
@@ -49,6 +50,25 @@ public class wordleSolver {
         System.out.println("What color was the tile? (green, yellow, grey)");
         System.out.println("The letter was " + a.charAt(pos));
         String color = scan.nextLine();
+        if (color.equalsIgnoreCase("yellow")) {
+          cont = true;
+        } else if (color.equalsIgnoreCase("green")) {
+          cont = true;
+        } else if (color.equalsIgnoreCase("grey")) {
+          cont = true;
+        } else {
+          cont = false;
+        }
+        while (!cont) {
+          System.out.println("Sorry, that was invalid.");
+          System.out.println("What color was the tile? (green, yellow, grey)");
+          System.out.println("The letter was " + a.charAt(pos));
+          color = scan.nextLine();
+          if (color.equalsIgnoreCase("yellow") || color.equalsIgnoreCase("green") ||
+                  color.equalsIgnoreCase("grey")) {
+            cont = true;
+          }
+        }
         char[] word;
         if(isStartWord){
           word = a.toCharArray();
@@ -57,15 +77,17 @@ public class wordleSolver {
         }
         removeWords(words, color, word[pos], pos);
         System.out.println(words);
-      }
+        }
       isStartWord = false;
       System.out.printf("Your next recommended word is: %s \n", words.get(0));
       System.out.println(words);
       System.out.println("Did you get the wordle? (Enter yes for yes, anything else for no)");
       gotIt = scan.nextLine();
       a = words.get(0);
+      }
+
     }
-  }
+
 
   public static String avoidRepeats(ArrayList<String> words) {
     boolean repeat = true;
