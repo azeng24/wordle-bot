@@ -111,7 +111,7 @@ public class wordleSolver {
     }
   }
   
-   public static ArrayList<String> removeWords(ArrayList<String> words, String color, char letter, int pos) {
+  public static ArrayList<String> removeWords(ArrayList<String> words, String color, char letter, int pos) {
     if (color.equalsIgnoreCase("green")) {
       ANSWER[pos] = letter;
       for (int i = words.size() - 1; i >= 0; i--) {
@@ -139,14 +139,21 @@ public class wordleSolver {
         }
         isYellow[letter-'a'] = true;
       }
+
     } else if(!isYellow[letter-'a'] && color.equalsIgnoreCase("grey")){ //added isGreen -> looks for greens before removing gray
         boolean isGreen=false;
-        for(int i=0; i<5; i++) {
-          if (ANSWER[i] == letter) {
-            isGreen = true;
-            break;
-          }
+        for (int i = 0; i < 5; i++) {
+            if (words.get(0).charAt(i) == words.get(0).charAt(pos) && i != pos && !isStartWord) {
+              isGreen = true;
+              for (int j = words.size() - 1; j >= 0; j--) {
+                if (words.get(j).charAt(pos) == letter) {
+                  words.remove(j);
+                }
+              }
+              break;
+            }
         }
+
         if(!isGreen) {
           for (int i = words.size() - 1; i >= 0; i--) {
             char[] word = words.get(i).toCharArray();
