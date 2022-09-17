@@ -31,7 +31,8 @@ public class wordleSolver {
       freqArr[i] = Double.parseDouble(readFreq.nextLine());
       i++;
     }
-    
+
+    //System.out.println(probability(words.get(0)));
   }
 
   static String avoidRepeats(ArrayList<String> words) {
@@ -54,7 +55,7 @@ public class wordleSolver {
     }
     return words.get(index);
   }
-  double probability (String word)
+  static double probability (String word)
   {
     double sum=0;
     int pos=0;
