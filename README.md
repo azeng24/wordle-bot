@@ -10,17 +10,17 @@
 
 <p> The program then enters all this data into another method that is based around the color that the word recieved when submitting. </p>
 
-<h5> If the letter recieved grey... </h5>
+<h4> If the letter recieved grey... </h4>
 <p> The program then removes any words that have that letter in them at all from the array list </p>
 
-<h5> If the letter recieved green... </h5>
+<h4> If the letter recieved green... </h4>
 <p> The program then removes any words that don't have that letter in them at that very position from the array list. </p>
 
-<h5> If the letter recieved green... </h5>
+<h4> If the letter recieved green... </h4>
 <p> The program then removes any words that don't have that letter in them at that very position from the array list. </p>
 
-<h5> If the letter recieved yellow... </h5>
+<h4> If the letter recieved yellow... </h4>
 <p> The program then removes any words that have that letter in them at that very position from the array list and makes sure that next word suggested has that same letter in a different position. </p>
 
-<h5> In case of duplicated/repeated letters... </h5>
+<h4> In case of duplicated/repeated letters... </h4>
 <p> If the user gets a result that implies that there are 2 of the same letter in the word, they will inform the program by inputting it at the appropriate time and the method will accommodate for that.  </p>
