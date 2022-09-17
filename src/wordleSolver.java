@@ -8,6 +8,7 @@ public class wordleSolver {
   static double[] freqArr = new double[26];
   static final char[] ANSWER = new char[5];
   static boolean[] isYellow = new boolean[26];
+  static boolean isStartWord = true;
 
   //declare ArrayList for words
   static ArrayList<String> words = new ArrayList<>();
@@ -46,16 +47,21 @@ public class wordleSolver {
       counter++;
       for (int pos = 0; pos < 5; pos++) {
         System.out.println("What color was the tile? (green, yellow, grey)");
-        System.out.println("The letter was " + a.charAt(pos));
         String color = scan.nextLine();
-        //System.out.println("Does this letter appear more than once in your input");
-        char[] word = a.toCharArray();
+        char[] word;
+        if(isStartWord){
+          word = a.toCharArray();
+        } else {
+          word = words.get(0).toCharArray();
+        }
         removeWords(words, color, word[pos], pos);
+        System.out.println(words);
       }
+      isStartWord = false;
       System.out.printf("Your next recommended word is: %s \n", words.get(0));
+      System.out.println(words);
       System.out.println("Did you get the wordle? (Enter yes for yes, anything else for no)");
       gotIt = scan.nextLine();
-      a = words.get(0);
     }
   }
 
