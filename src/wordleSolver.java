@@ -60,7 +60,7 @@ public class wordleSolver {
           cont = false;
         }
         while (!cont) {
-          System.out.println("Sorry, that was invalid.");
+          System.out.println("Sorry, that was invalid. Try again.");
           System.out.println("What color was the tile? (green, yellow, grey)");
           System.out.println("The letter was " + a.charAt(pos));
           color = scan.nextLine();
