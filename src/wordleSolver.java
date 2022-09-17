@@ -41,17 +41,19 @@ public class wordleSolver {
     String a = avoidRepeats(words);
     System.out.printf("Your recommended first word is %s \n", a);
     System.out.println("Did you get the wordle? (Enter yes for yes, anything else for no)");
-    gotIt = scan.next();
+    gotIt = scan.nextLine();
     while (!(gotIt.equalsIgnoreCase("yes")) && counter < 6) {
       counter++;
-      // the rest of the code ..
-      for (int n = 0; n < 6; n++) {
-        do {
-          System.out.println("Enter the color shown for the first letter(yellow, gray, green): ");
-          first = scan.next();
-        } while (!(first.equalsIgnoreCase("yellow")) || !(first.equalsIgnoreCase("green"))
-                || !(first.equalsIgnoreCase("gray")) || !(first.equalsIgnoreCase("grey")));
+      for (int pos = 0; pos < 5; pos++) {
+        System.out.println("What color was the tile? (green, yellow, grey)");
+        String color = scan.nextLine();
+        //System.out.println("Does this letter appear more than once in your input");
+        char[] word = a.toCharArray();
+        removeWords(words, color, word[pos], pos);
       }
+      System.out.printf("Your next recommended word is: %s \n", words.get(0));
+      System.out.println("Did you get the wordle? (Enter yes for yes, anything else for no)");
+      gotIt = scan.nextLine();
     }
   }
 
@@ -122,7 +124,9 @@ public class wordleSolver {
         for (int j = 0; j < 5; j++) {
           if (j == pos) {
             if (word[j] == letter) {
+              counter++;
               words.remove(i);
+              break;
             }
           } else if (word[j] == letter) {
               counter++;
