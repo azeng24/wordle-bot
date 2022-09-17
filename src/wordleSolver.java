@@ -47,6 +47,7 @@ public class wordleSolver {
       counter++;
       for (int pos = 0; pos < 5; pos++) {
         System.out.println("What color was the tile? (green, yellow, grey)");
+        System.out.println("The letter was " + a.charAt(pos));
         String color = scan.nextLine();
         char[] word;
         if(isStartWord){
@@ -62,6 +63,7 @@ public class wordleSolver {
       System.out.println(words);
       System.out.println("Did you get the wordle? (Enter yes for yes, anything else for no)");
       gotIt = scan.nextLine();
+      a = words.get(0);
     }
   }
 
