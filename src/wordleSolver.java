@@ -42,7 +42,7 @@ public class wordleSolver {
       char[] word = words.get(index).toCharArray();
       int counter = 0;
       for (int i = 0; i < 5; i++) {
-        for (int j = 1+1; j < 5; j++) {
+        for (int j = i + 1; j < 5; j++) {
           if (word[i] == word[j]) {
             index++;
             counter++;
