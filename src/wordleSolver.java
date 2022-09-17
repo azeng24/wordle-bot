@@ -116,7 +116,7 @@ public class wordleSolver {
             if (word[j] == letter) {
               words.remove(i);
             }
-          } else if (word[j] != letter) {
+          } else if (word[j] == letter) {
               counter++;
           }
         }
