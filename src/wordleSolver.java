@@ -4,7 +4,7 @@ public wordleSolver {
   public static void main(String[] args) {
     
     //declare array for frequency
-    double freqArr = new double[26];
+    double[] freqArr = new double[26];
     
     //declare ArrayList for words
     ArrayList words = new ArrayList();
@@ -16,7 +16,7 @@ public wordleSolver {
       String w = readerWords.nextLine();
       words.add(w);  
     }
-    readerWords.close()
+    readerWords.close();
       
     //read in frequency text file
     File myObj2 = new File("FreqByLetter.txt");
