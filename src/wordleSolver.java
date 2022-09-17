@@ -40,7 +40,7 @@ public class wordleSolver {
     String gotIt;
     doSelectionSort();
     String a = avoidRepeats(words);
-    System.out.printf("Your recommended first word is %s \n", a);
+    System.out.printf("Your recommended first word is: %s \n", a);
     System.out.println("Did you get the wordle? (Enter yes for yes, anything else for no)");
     gotIt = scan.nextLine();
     while (!(gotIt.equalsIgnoreCase("yes")) && counter < 6) {
@@ -52,7 +52,7 @@ public class wordleSolver {
       }
       isYellow = new boolean[26];
       for (int pos = 0; pos < 5; pos++) {
-        System.out.println("What color was the tile? (green, yellow, grey)");
+        System.out.printf("What color was tile #%d? (green, yellow, or grey)", pos+1);
         String color = scan.nextLine();
         System.out.println(word[pos]);
         removeWords(words, color, word[pos], pos);
