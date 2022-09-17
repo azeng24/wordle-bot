@@ -129,33 +129,27 @@ public class wordleSolver {
               break;
             }
           } else if (word[j] == letter) {
-              counter++;
+            counter++;
           }
         }
         if (counter == 0) {
-         words.remove(i);
+          words.remove(i);
         }
-        int let = word[i] - 'a';
-        isYellow[let] = true;
+        isYellow[letter-'a'] = true;
       }
-
-    } else { //added isGreen -> looks for greens before removing gray
-      if(!isYellow[letter-'a']) {
+    } else if(!isYellow[letter-'a'] && color.equalsIgnoreCase("grey")){ //added isGreen -> looks for greens before removing gray
         boolean isGreen=false;
-        for(int i=0; i<5; i++)
-        {
-          if(ANSWER[i]==letter)
-          {
-            isGreen=true;
+        for(int i=0; i<5; i++) {
+          if (ANSWER[i] == letter) {
+            isGreen = true;
             break;
           }
         }
         if(!isGreen) {
           for (int i = words.size() - 1; i >= 0; i--) {
             char[] word = words.get(i).toCharArray();
-            int index = 0;
-            while (true) {
-              if (word[index] == letter) {
+            for(int j = 0; j < 5; j++) {
+              if (word[j] == letter) {
                 words.remove(i);
                 break;
               }
@@ -163,7 +157,6 @@ public class wordleSolver {
           }
         }
       }
-    }
     return words;
   }
 }
