@@ -15,7 +15,7 @@ public class wordleSolver {
   static ArrayList<String> words = new ArrayList<>();
   public static void main(String[] args) throws FileNotFoundException {
     // Quick introduction to the program!
-    System.out.println("Hello! Welcome to the Wordle Bot:)");
+    System.out.println("Hello! Welcome to to the Wordle Bot:)");
     System.out.println("Instructions are pretty simple: Follow along to help get suggestions " +
             "on different words you can use to try to get the \"Wordle\" word!");
     System.out.println("DISCLAIMER: this is NOT a \"Wordle\" solver. You are not guaranteed to get " +
