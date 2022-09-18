@@ -66,6 +66,9 @@ public class wordleSolver {
       System.out.println("Did you get the wordle? (Enter yes for yes, anything else for no)");
       gotIt = scan.nextLine();
     }
+    if(gotIt.equalsIgnoreCase("yes")){
+      System.out.printf("Today's wordle word is: %s! \n", words.get(0));
+    }
   }
 
   //returns first word in "words" without duplicate letters
