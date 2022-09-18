@@ -59,13 +59,10 @@ public class wordleSolver {
       for (int pos = 0; pos < 5; pos++) {
         System.out.printf("What color was tile #%d? (green, yellow, or grey) \n", pos+1);
         String color = scan.nextLine();
-        System.out.println(word[pos]);
         removeWords(words, color, word[pos], pos); //removes words based on letter and tile color
-        System.out.println(words);
       }
       isStartWord = false;
       System.out.printf("Your next recommended word is: %s \n", words.get(0));
-      System.out.println(words);
       System.out.println("Did you get the wordle? (Enter yes for yes, anything else for no)");
       gotIt = scan.nextLine();
     }
